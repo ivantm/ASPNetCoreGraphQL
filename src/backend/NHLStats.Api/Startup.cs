@@ -1,4 +1,4 @@
-﻿
+﻿using GraphiQl;
 using GraphQL;
 using GraphQL.Types;
 using Microsoft.AspNetCore.Builder;
@@ -10,7 +10,6 @@ using NHLStats.Api.Models;
 using NHLStats.Core.Data;
 using NHLStats.Data;
 using NHLStats.Data.Repositories;
-
 
 namespace NHLStats.Api
 {
@@ -28,7 +27,7 @@ namespace NHLStats.Api
         {
             services.AddMvc();
 
-            services.AddDbContext<NHLStatsContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:NHLStatsDb"]));
+            services.AddDbContext<NHLStatsContext>(options => options.UseNpgsql(Configuration["ConnectionStrings:Default"]));
             services.AddTransient<IPlayerRepository, PlayerRepository>();
             services.AddTransient<ISkaterStatisticRepository, SkaterStatisticRepository>();
             services.AddSingleton<IDocumentExecuter, DocumentExecuter>();

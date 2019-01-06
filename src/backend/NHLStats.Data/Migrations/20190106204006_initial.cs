@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace NHLStats.Data.Migrations
 {
@@ -14,7 +13,7 @@ namespace NHLStats.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Name = table.Column<string>(nullable: true),
                     Abbreviation = table.Column<string>(nullable: true)
                 },
@@ -28,7 +27,7 @@ namespace NHLStats.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Name = table.Column<string>(nullable: true),
                     BirthDate = table.Column<DateTime>(nullable: false),
                     BirthPlace = table.Column<string>(nullable: true),
@@ -45,7 +44,7 @@ namespace NHLStats.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -58,7 +57,7 @@ namespace NHLStats.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Name = table.Column<string>(nullable: true),
                     Abbreviation = table.Column<string>(nullable: true)
                 },
@@ -72,7 +71,7 @@ namespace NHLStats.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     SeasonId = table.Column<int>(nullable: false),
                     LeagueId = table.Column<int>(nullable: false),
                     TeamId = table.Column<int>(nullable: false),

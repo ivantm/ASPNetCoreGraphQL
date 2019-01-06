@@ -2,25 +2,24 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.EntityFrameworkCore.Storage.Internal;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NHLStats.Data;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace NHLStats.Data.Migrations
 {
     [DbContext(typeof(NHLStatsContext))]
-    [Migration("20180331173608_initial")]
+    [Migration("20190106204006_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.0-preview1-28290")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
+                .HasAnnotation("ProductVersion", "2.2.0-rtm-35687")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("NHLStats.Core.Models.League", b =>
                 {
@@ -73,21 +72,21 @@ namespace NHLStats.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<ushort>("Assists");
+                    b.Property<int>("Assists");
 
-                    b.Property<ushort>("GamesPlayed");
+                    b.Property<int>("GamesPlayed");
 
-                    b.Property<ushort>("Goals");
+                    b.Property<int>("Goals");
 
                     b.Property<int>("LeagueId");
 
-                    b.Property<ushort>("PenaltyMinutes");
+                    b.Property<int>("PenaltyMinutes");
 
                     b.Property<int>("PlayerId");
 
                     b.Property<short?>("PlusMinus");
 
-                    b.Property<ushort>("Points");
+                    b.Property<int>("Points");
 
                     b.Property<int>("SeasonId");
 
